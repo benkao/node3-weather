@@ -16,8 +16,10 @@ const forecast = (latitude, longitude, callback) => {
             const temp = body.currently.temperature
             const rain = body.currently.precipProbability
             const summary = body.daily.data[0].summary
+            const hiTemp = body.daily.data[0].temperatureHigh
+            const lowTemp = body.daily.data[0].temperatureLow
             //console.log(`It is currently ${temp} degrees C out. There is a ${rain}% chance of rain.`)
-            callback('',`${summary}現在室外溫度${temp}度C。降雨機率為${rain}%。`)
+            callback('',`${summary}現在室外溫度${temp}度C。降雨機率為${rain}%。最高溫${hiTemp}度C、最低溫${lowTemp}度C`)
         }
     })
 }
