@@ -2,6 +2,10 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const app = express()
+
+//add port for heroku
+const port = process.env.PORT || 3000
+
 //const request = require('request')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast')
@@ -110,6 +114,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Sever is up on port 3000.')
+app.listen(port, () => {
+    console.log('Sever is up on port' + port)
 })
